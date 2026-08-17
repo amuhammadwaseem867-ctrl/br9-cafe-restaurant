@@ -1,0 +1,421 @@
+.br9-navbar {
+  --black: #0a0a09;
+  --black-soft: #11110f;
+  --yellow: #f4c542;
+  --yellow-bright: #ffd84d;
+  --white: #f7f5ee;
+  --muted: #99968d;
+  --border: rgba(247, 245, 238, 0.12);
+
+  position: fixed;
+  top: 0;
+  left: 0;
+
+  z-index: 1000;
+
+  width: 100%;
+
+  background: rgba(10, 10, 9, 0.92);
+
+  border-bottom: 1px solid var(--border);
+
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
+}
+
+.br9-navbar-inner {
+  width: min(1380px, calc(100% - 48px));
+
+  min-height: 76px;
+
+  margin: 0 auto;
+
+  display: flex;
+  align-items: center;
+
+  gap: 40px;
+}
+
+
+/* =========================================
+   LOGO
+========================================= */
+
+.br9-logo {
+  display: flex;
+  flex-direction: column;
+
+  flex-shrink: 0;
+
+  color: var(--white);
+
+  text-decoration: none;
+}
+
+.br9-logo-main {
+  font-family:
+    Georgia,
+    "Times New Roman",
+    serif;
+
+  font-size: 30px;
+  font-weight: 700;
+
+  line-height: 0.85;
+
+  letter-spacing: -0.06em;
+}
+
+.br9-logo-sub {
+  margin-top: 7px;
+
+  color: var(--yellow);
+
+  font-family:
+    Arial,
+    Helvetica,
+    sans-serif;
+
+  font-size: 7px;
+  font-weight: 700;
+
+  line-height: 1;
+
+  letter-spacing: 0.17em;
+}
+
+
+/* =========================================
+   DESKTOP NAV
+========================================= */
+
+.br9-desktop-nav {
+  display: flex;
+  align-items: center;
+
+  gap: 38px;
+
+  margin-left: auto;
+}
+
+.br9-desktop-nav a {
+  position: relative;
+
+  padding: 8px 0;
+
+  color: var(--muted);
+
+  font-family:
+    Arial,
+    Helvetica,
+    sans-serif;
+
+  font-size: 12px;
+  font-weight: 500;
+
+  letter-spacing: 0.04em;
+
+  text-decoration: none;
+
+  transition: color 0.25s ease;
+}
+
+.br9-desktop-nav a::after {
+  content: "";
+
+  position: absolute;
+
+  left: 0;
+  bottom: 0;
+
+  width: 0;
+  height: 2px;
+
+  background: var(--yellow);
+
+  transition: width 0.25s ease;
+}
+
+.br9-desktop-nav a:hover {
+  color: var(--white);
+}
+
+.br9-desktop-nav a:hover::after {
+  width: 100%;
+}
+
+
+/* =========================================
+   ORDER BUTTON
+========================================= */
+
+.br9-order-button {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  width: 142px;
+  height: 46px;
+
+  padding: 0 15px;
+
+  background: var(--yellow);
+
+  color: var(--black);
+
+  font-family:
+    Arial,
+    Helvetica,
+    sans-serif;
+
+  font-size: 10px;
+  font-weight: 800;
+
+  letter-spacing: 0.08em;
+
+  text-decoration: none;
+  text-transform: uppercase;
+
+  transition:
+    background 0.25s ease,
+    transform 0.25s ease;
+}
+
+.br9-order-arrow {
+  font-size: 18px;
+  font-weight: 400;
+
+  line-height: 1;
+}
+
+.br9-order-button:hover {
+  background: var(--yellow-bright);
+
+  transform: translateY(-2px);
+}
+
+
+/* =========================================
+   MOBILE TOGGLE
+========================================= */
+
+.br9-menu-toggle {
+  display: none;
+
+  width: 44px;
+  height: 44px;
+
+  padding: 0;
+
+  margin-left: auto;
+
+  border: 1px solid var(--border);
+
+  background: transparent;
+
+  cursor: pointer;
+
+  align-items: center;
+  justify-content: center;
+
+  flex-direction: column;
+
+  gap: 6px;
+}
+
+.br9-menu-toggle span {
+  display: block;
+
+  width: 19px;
+  height: 2px;
+
+  background: var(--white);
+
+  transition:
+    transform 0.3s ease,
+    background 0.3s ease;
+}
+
+.br9-menu-toggle:hover span {
+  background: var(--yellow);
+}
+
+.br9-menu-toggle.active span:first-child {
+  transform: translateY(4px) rotate(45deg);
+}
+
+.br9-menu-toggle.active span:last-child {
+  transform: translateY(-4px) rotate(-45deg);
+}
+
+
+/* =========================================
+   MOBILE MENU
+========================================= */
+
+.br9-mobile-menu {
+  display: none;
+}
+
+
+/* =========================================
+   TABLET
+========================================= */
+
+@media (max-width: 850px) {
+  .br9-navbar-inner {
+    width: min(100% - 36px, 1380px);
+
+    min-height: 70px;
+
+    gap: 25px;
+  }
+
+  .br9-desktop-nav {
+    gap: 25px;
+  }
+
+  .br9-order-button {
+    width: 125px;
+  }
+}
+
+
+/* =========================================
+   MOBILE
+========================================= */
+
+@media (max-width: 700px) {
+  .br9-navbar-inner {
+    width: calc(100% - 32px);
+
+    min-height: 64px;
+
+    gap: 15px;
+  }
+
+  .br9-logo-main {
+    font-size: 27px;
+  }
+
+  .br9-logo-sub {
+    font-size: 6px;
+  }
+
+  .br9-desktop-nav,
+  .br9-order-button {
+    display: none;
+  }
+
+  .br9-menu-toggle {
+    display: flex;
+  }
+
+  .br9-mobile-menu {
+    display: grid;
+
+    grid-template-rows: 0fr;
+
+    overflow: hidden;
+
+    background: var(--black);
+
+    opacity: 0;
+
+    transition:
+      grid-template-rows 0.35s ease,
+      opacity 0.25s ease;
+  }
+
+  .br9-navbar.menu-open .br9-mobile-menu {
+    grid-template-rows: 1fr;
+
+    opacity: 1;
+  }
+
+  .br9-mobile-menu nav {
+    min-height: 0;
+
+    display: flex;
+    flex-direction: column;
+
+    padding: 0 16px;
+  }
+
+  .br9-mobile-menu nav > a {
+    padding: 18px 5px;
+
+    border-top: 1px solid var(--border);
+
+    color: var(--white);
+
+    font-family:
+      Georgia,
+      "Times New Roman",
+      serif;
+
+    font-size: 25px;
+    font-weight: 400;
+
+    text-decoration: none;
+
+    transition: color 0.2s ease;
+  }
+
+  .br9-mobile-menu nav > a:hover {
+    color: var(--yellow);
+  }
+
+  .br9-mobile-order {
+    display: flex !important;
+
+    align-items: center;
+    justify-content: space-between;
+
+    margin: 15px 0 18px;
+
+    padding: 17px !important;
+
+    border: 0 !important;
+
+    background: var(--yellow);
+
+    color: var(--black) !important;
+
+    font-family:
+      Arial,
+      Helvetica,
+      sans-serif !important;
+
+    font-size: 11px !important;
+    font-weight: 800 !important;
+
+    letter-spacing: 0.08em;
+
+    text-transform: uppercase;
+  }
+
+  .br9-mobile-order:hover {
+    background: var(--yellow-bright);
+  }
+}
+
+
+/* =========================================
+   SMALL MOBILE
+========================================= */
+
+@media (max-width: 380px) {
+  .br9-navbar-inner {
+    width: calc(100% - 24px);
+  }
+
+  .br9-logo-main {
+    font-size: 25px;
+  }
+
+  .br9-menu-toggle {
+    width: 42px;
+    height: 42px;
+  }
+}

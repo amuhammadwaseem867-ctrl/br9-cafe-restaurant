@@ -1,0 +1,492 @@
+.br9-hero {
+  --br9-bg: #11100f;
+  --br9-ivory: #f2eadf;
+  --br9-muted: #b8aea3;
+  --br9-gold: #b99461;
+
+  position: relative;
+
+  width: 100%;
+  min-height: 100svh;
+
+  display: flex;
+  align-items: center;
+
+  overflow: hidden;
+
+  background: var(--br9-bg);
+}
+
+
+/* =========================================
+   HERO IMAGE
+========================================= */
+
+.br9-hero-image {
+  position: absolute;
+
+  inset: 0;
+
+  background-image: url("https://images.unsplash.com/photo-1515003197210-e0cd71810b5f?auto=format&fit=crop&w=2200&q=85");
+
+  background-position: center;
+  background-size: cover;
+
+  transform: scale(1.02);
+
+  animation: br9HeroImage 12s ease-out forwards;
+}
+
+@keyframes br9HeroImage {
+  from {
+    transform: scale(1.08);
+  }
+
+  to {
+    transform: scale(1.02);
+  }
+}
+
+
+/* =========================================
+   OVERLAYS
+========================================= */
+
+.br9-hero-overlay {
+  position: absolute;
+
+  inset: 0;
+
+  background:
+    linear-gradient(
+      90deg,
+      rgba(8, 7, 6, 0.88) 0%,
+      rgba(8, 7, 6, 0.66) 38%,
+      rgba(8, 7, 6, 0.25) 75%,
+      rgba(8, 7, 6, 0.48) 100%
+    );
+
+  z-index: 1;
+}
+
+.br9-hero-overlay::after {
+  content: "";
+
+  position: absolute;
+
+  inset: 0;
+
+  background:
+    linear-gradient(
+      180deg,
+      rgba(8, 7, 6, 0.55) 0%,
+      transparent 35%,
+      transparent 70%,
+      rgba(8, 7, 6, 0.7) 100%
+    );
+}
+
+
+/* =========================================
+   CONTENT
+========================================= */
+
+.br9-hero-content {
+  position: relative;
+
+  z-index: 2;
+
+  width: min(1380px, calc(100% - 48px));
+
+  margin: 0 auto;
+
+  padding-top: 80px;
+}
+
+.br9-hero-eyebrow {
+  margin: 0 0 24px;
+
+  color: var(--br9-gold);
+
+  font-family: Arial, sans-serif;
+
+  font-size: 11px;
+
+  font-weight: 600;
+
+  letter-spacing: 0.22em;
+
+  line-height: 1.4;
+}
+
+
+/* =========================================
+   TITLE
+========================================= */
+
+.br9-hero h1 {
+  max-width: 760px;
+
+  margin: 0;
+
+  color: var(--br9-ivory);
+
+  font-family: Georgia, "Times New Roman", serif;
+
+  font-size: clamp(64px, 8.5vw, 126px);
+
+  font-weight: 400;
+
+  letter-spacing: -0.055em;
+
+  line-height: 0.86;
+}
+
+.br9-hero h1 span {
+  display: block;
+
+  color: var(--br9-gold);
+
+  font-style: italic;
+}
+
+
+/* =========================================
+   DESCRIPTION
+========================================= */
+
+.br9-hero-description {
+  margin: 32px 0 0;
+
+  color: var(--br9-muted);
+
+  font-family: Arial, sans-serif;
+
+  font-size: 15px;
+
+  font-weight: 400;
+
+  line-height: 1.7;
+
+  letter-spacing: 0.01em;
+}
+
+
+/* =========================================
+   ACTIONS
+========================================= */
+
+.br9-hero-actions {
+  margin-top: 34px;
+
+  display: flex;
+  align-items: center;
+
+  gap: 12px;
+}
+
+.br9-hero-primary,
+.br9-hero-secondary {
+  min-height: 50px;
+
+  padding: 0 20px;
+
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  font-family: Arial, sans-serif;
+
+  font-size: 10px;
+
+  font-weight: 700;
+
+  letter-spacing: 0.1em;
+
+  text-decoration: none;
+
+  text-transform: uppercase;
+}
+
+.br9-hero-primary {
+  gap: 20px;
+
+  background: var(--br9-gold);
+
+  color: #11100f;
+
+  transition:
+    background 0.25s ease,
+    transform 0.25s ease;
+}
+
+.br9-hero-primary span {
+  font-size: 16px;
+
+  transition: transform 0.25s ease;
+}
+
+.br9-hero-primary:hover {
+  background: var(--br9-ivory);
+
+  transform: translateY(-2px);
+}
+
+.br9-hero-primary:hover span {
+  transform: translate(3px, -3px);
+}
+
+.br9-hero-secondary {
+  border: 1px solid rgba(242, 234, 223, 0.35);
+
+  color: var(--br9-ivory);
+
+  transition:
+    background 0.25s ease,
+    border-color 0.25s ease;
+}
+
+.br9-hero-secondary:hover {
+  border-color: var(--br9-ivory);
+
+  background: rgba(242, 234, 223, 0.08);
+}
+
+
+/* =========================================
+   BOTTOM INFORMATION
+========================================= */
+
+.br9-hero-bottom {
+  position: absolute;
+
+  z-index: 3;
+
+  left: 50%;
+  bottom: 30px;
+
+  width: min(1380px, calc(100% - 48px));
+
+  transform: translateX(-50%);
+
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+}
+
+.br9-hero-info {
+  display: flex;
+  flex-direction: column;
+
+  gap: 5px;
+}
+
+.br9-hero-info span {
+  color: var(--br9-muted);
+
+  font-family: Arial, sans-serif;
+
+  font-size: 8px;
+
+  font-weight: 600;
+
+  letter-spacing: 0.18em;
+}
+
+.br9-hero-info strong {
+  color: var(--br9-ivory);
+
+  font-family: Arial, sans-serif;
+
+  font-size: 10px;
+
+  font-weight: 600;
+
+  letter-spacing: 0.12em;
+}
+
+.br9-hero-info-right {
+  text-align: right;
+}
+
+
+/* =========================================
+   SCROLL INDICATOR
+========================================= */
+
+.br9-hero-scroll {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  gap: 9px;
+}
+
+.br9-hero-scroll span {
+  color: rgba(242, 234, 223, 0.65);
+
+  font-family: Arial, sans-serif;
+
+  font-size: 7px;
+
+  font-weight: 600;
+
+  letter-spacing: 0.2em;
+}
+
+.br9-scroll-line {
+  width: 1px;
+  height: 42px;
+
+  background: linear-gradient(
+    to bottom,
+    var(--br9-gold),
+    transparent
+  );
+}
+
+
+/* =========================================
+   TABLET
+========================================= */
+
+@media (max-width: 900px) {
+  .br9-hero-content {
+    width: calc(100% - 40px);
+
+    padding-top: 100px;
+  }
+
+  .br9-hero h1 {
+    font-size: clamp(58px, 11vw, 92px);
+  }
+
+  .br9-hero-bottom {
+    width: calc(100% - 40px);
+  }
+}
+
+
+/* =========================================
+   MOBILE
+========================================= */
+
+@media (max-width: 760px) {
+  .br9-hero {
+    min-height: 100svh;
+
+    align-items: center;
+  }
+
+  .br9-hero-image {
+    background-position: 58% center;
+  }
+
+  .br9-hero-overlay {
+    background:
+      linear-gradient(
+        90deg,
+        rgba(8, 7, 6, 0.83),
+        rgba(8, 7, 6, 0.5)
+      );
+  }
+
+  .br9-hero-content {
+    width: calc(100% - 32px);
+
+    padding-top: 70px;
+  }
+
+  .br9-hero-eyebrow {
+    margin-bottom: 20px;
+
+    font-size: 9px;
+
+    letter-spacing: 0.17em;
+  }
+
+  .br9-hero h1 {
+    max-width: 500px;
+
+    font-size: clamp(52px, 16vw, 76px);
+
+    line-height: 0.88;
+  }
+
+  .br9-hero-description {
+    margin-top: 25px;
+
+    font-size: 13px;
+
+    line-height: 1.65;
+  }
+
+  .br9-hero-actions {
+    margin-top: 28px;
+
+    gap: 9px;
+  }
+
+  .br9-hero-primary,
+  .br9-hero-secondary {
+    min-height: 47px;
+
+    padding: 0 16px;
+
+    font-size: 9px;
+  }
+
+  .br9-hero-primary {
+    gap: 14px;
+  }
+
+  .br9-hero-bottom {
+    bottom: 20px;
+
+    width: calc(100% - 32px);
+  }
+
+  .br9-hero-scroll {
+    display: none;
+  }
+
+  .br9-hero-info {
+    gap: 4px;
+  }
+
+  .br9-hero-info span {
+    font-size: 7px;
+  }
+
+  .br9-hero-info strong {
+    font-size: 8px;
+  }
+}
+
+
+/* =========================================
+   SMALL PHONES
+========================================= */
+
+@media (max-width: 400px) {
+  .br9-hero-content {
+    padding-top: 55px;
+  }
+
+  .br9-hero h1 {
+    font-size: 48px;
+  }
+
+  .br9-hero-description {
+    font-size: 12px;
+  }
+
+  .br9-hero-primary,
+  .br9-hero-secondary {
+    min-height: 44px;
+
+    padding: 0 13px;
+
+    font-size: 8px;
+  }
+}
